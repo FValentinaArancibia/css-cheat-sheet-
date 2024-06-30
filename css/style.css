@@ -1,0 +1,299 @@
+/*
+Regla de css consta de dos partes:
+1 el selector
+2 bloque de declaraciones:{    
+atributo:valor;
+atributo-de-mas-dos-palabras:otro-valor
+}
+*/
+
+/* Son malas practicas por que son bloquiantes a la hora de que el navegador lee esta instruccion */
+/*@import url(otra-hoja.css);*/
+
+h1{
+    color:greenyellow;
+    background-color:black;
+    text-align: center;
+}
+
+/* 
+Selectores Básicos
+1) Etiquetas- son elementos html
+2) Identificadores- atributo id-#
+3) Clases- atributo class
+*/
+
+p{
+    color:darkblue;
+}
+
+/* Dar estilos con id se considera un AntiPatron(mala practica) */
+#parrafo-dos{
+    background-color: aquamarine;
+}
+
+/* Dar estilos con clases nos permite reutilizar nuestro codigo CSS */
+.tex-20{
+    font-size: 20px; /* Tamaño de la fuente*/
+}
+
+.tex-32{
+    font-size: 32px;
+}
+
+.text-white{
+    color: white;
+}
+
+.bg-skyblue{
+    background-color: skyblue;
+}
+
+.bg-steelblue{
+    background-color: steelblue ;
+}
+
+.hijos-directos > li{ /* eso aplica solo para los del primer nivel*/
+    background-color: thistle; 
+}
+
+.hijos-descendientes b{ /* solo aplica con espacio  */
+    background-color: thistle;
+}
+
+.hermanos-general ~ li{ /* Los selectorees de hermanos van a aplicar a los elementos que son hermanos y que esten por debajo del elemento de referencia */
+    background-color: thistle;
+}
+
+.hermanos-adyacentes + li{
+    background-color: thistle;
+}
+
+/* Selectores de Atributos */
+
+.selectores-atributos a[href]{
+    color: orangered;
+}
+
+.selectores-atributos a[target="_blanck"]{
+    font-weight: bold;
+}
+
+/* Elcomodin del * aplica el estilo si contiene el texto en cuestion en cualquier parte */
+
+.selectores-atributos a[href*="jonmircha"]{
+    font-size: 24px;
+}
+
+/* El comodin del ^ aplica el estilo si contiene el texto en cuestion al inicio*/
+
+.selectores-atributos a[href^="http://"]{
+    text-decoration: none;
+}
+
+/* El comodin del $ aplica el estilo si contiene el texto en cuestion al final*/
+
+.selectores-atributos a[href$=".com"]{
+    background-color:deepskyblue;
+}
+
+/* El comodin del ~ aplica el estilo si contiene el texto en cuestion en una lista separada por espacios*/
+
+.selectores-atributos a[class~="cursos"]{
+    background-color:dimgray
+}
+
+/* El comodin del | aplica el estilo si contiene el texto en cuestion en una lista separada por espacios y que despues del texto en cuestion venga un guion medio - */
+
+.selectores-atributos a[class|="menu"]{
+    font-style: italic;
+}
+
+/* Selector Universal */
+
+*{
+    font-family: sans-serif;
+}
+
+.selector-universal *{
+font-size: 24px;
+}
+
+/* PseudoClases */
+
+.form-pseudoclases *:required{
+    border-color: yellow;
+}
+
+.form-pseudoclases *:valid{
+    border-color: green;
+}
+
+.form-pseudoclases *:invalid{
+    border-color: red;
+}
+
+.form-pseudoclases *:focus{ /* color de fondo*/
+    background-color: skyblue;
+}
+
+.menu-pseudoclases a:visited{
+    color:olive;
+}
+
+.menu-pseudoclases a:hover{ /* hover color al pasar el maus en los enlaces y movimiento */
+    color: red;
+}
+
+.p-pseudoclases:hover{
+    font-size: 20px;
+}
+
+#temario-css:target{
+    background-color:pink ;
+}
+
+.lista-pseudoclases li:first-child{  /* firsht-child = va a aplicar al primer elemento que tenga el elemento padre y que aparte sea de tipo li*/
+    color: green;
+}
+
+.lista-pseudoclases li:last-child{ /* y para el ultimo elemento */
+    color:violet ;
+}
+
+.lista-pseudoclases li:nth-child(3){ /* Numero de la posicion del tercer elemento*/
+    color: blue;
+}
+
+.lista-pseudoclases li:nth-child(4n){ /* Signifaca que va de 4 en 4 va asignando siertos estilos*/
+    font-size: 20px;
+}
+
+.lista-pseudoclases li:nth-child(3n+1){ /* eso significa que apartir de 3 en 3 va a umentarle 1 */
+    font-weight: bold;
+}
+
+.lista-pseudoclases li:nth-child(even){ /* Para los elementos que sena pares*/
+    background-color: yellow;
+}
+
+.lista-pseudoclases li:nth-child(odd){ /* Para los elementos impar*/
+    background-color: greenyellow;
+}
+
+.articulo-pseudoclases p:first-of-type{ /* Cubre al primer parrafo NO es el primer elemento hijo por que es header*/
+    background-color: pink;
+}
+
+.articulo-pseudoclases p:last-of-type{ /* Cubre al ultimo parrafo p*/
+    background-color: violet;
+}
+
+.articulo-pseudoclases p:nth-of-type(3){ /* Cubre al 3 parrafo p*/
+    background-color:fuchsia;
+}
+
+.articulo-pseudoclases *:not(p){  /* Estamos utilizando el selector universal que significa todas las etiquetas pero le diremos que no aplique los colores pera los de tipo parrafo si queremos incluir mas splo agregar una coma , */
+    background-color: bisque;
+}
+
+/* Pseudoelementos - dan estilos a partes especificas de un eleemento, se usa el :: pra diferenciarlos de las pseudoclases y si no tiene el elemento countent no va a servir*/
+
+.saga-geminis::before{  /* se usa para colocar un contenido antes de lo escrito */
+    content: "🤼‍♀️";
+}
+
+.saga-geminis::after{  /* se usa para colocar un contenido despues de lo escrito */
+    content: "♊";
+}
+
+.saga-precio::before{
+    content: "$";
+    font-weight: bold;
+}
+
+.saga-precio::after{
+    content: "USD";
+    font-weight: bold;
+}
+
+.p-pseudoelementos::first-letter{ /* first-latter = hace referencia al primer elemento osea a la primera letra*/
+    font-weight: bold;
+    font-size: 32px;
+}
+
+.p-pseudoelementos::first-line{ /* first-line= hace referencia a la primera linea*/
+    color: coral;
+}
+
+.p-pseudoelementos::selection{ /* selecton= hace referencia a cuando el usuario selecciona el texto*/
+    color: greenyellow;
+    background-color: black;
+}
+
+/* Agrupar Selectores*/
+.form-agrupar-selectores input[type="text"],   /* asi se hace para agregar estilos a los elementos*/
+.form-agrupar-selectores input[type="email"],
+.form-agrupar-selectores textarea{
+    border-color: yellow;
+    border-width: 2px;
+    border-style: dashed; /* diseño del borde*/
+    background-color: black;
+    font-size: 20px;
+    display: block;
+    width: 300px;
+}
+
+/* La Especificidad esel peso que tiene un selector cuando hay conflicto de estilos.
+Se calcula de la siguiente forma:
+    Etiquetas y pseudoelementos.................0,0,0,1
+    Clases, atributos y pseudoclases.............0,0,1,0
+    Idendtificadores..............................0,1,0,0
+    Estilos en linea...............................1,0,0,0
+    !important.......................Rompe la especficidad
+*/
+
+blockquote{
+    background-color: pink;
+}
+
+#cita-marco{
+    background-color: lightgreen;
+}
+
+blockquote.cita-marco{
+    background-color: darkorchid; /* El selector que tiene una etiqueta y una clase tiene un peso mayor por lo tanto esta es una especificidad con mayor peso que las demas entonces el color que aparecera sera morado*/
+}
+
+.cita-marco{
+    background-color: greenyellow !important; /* La especificidad se rompe con esta practica osea que el mayor peso sera este */
+}
+
+.cita-marco{
+    background-color: palevioletred;
+}
+
+blockquote#cita-marco{
+    background-color: deepskyblue;
+}
+
+/* HERENCIA*/
+
+.cita-marco{
+    background-color: moccasin!important;
+    background-color: darkorange!important;
+    font-size: 32px;
+    border-style: dotted;
+    border-color: blue;
+}
+
+
+.cita-marco cite {
+    background-color:hotpink;
+    background-color: inherit;/* con esto vuelve al color inial  */
+    font-size: 24px;
+    font-size: initial;
+    border-style: inherit;
+    border-color: inherit;
+}
+
